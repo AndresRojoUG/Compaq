@@ -1,0 +1,592 @@
+<header id="header">
+    <div id="inicio" class="container__header">
+        <div class="logo">
+            <img src="../../../assets/imagenes/SiigoAspel.png" alt="">
+        </div>
+        <div class="container__nav">
+            <nav id="nav">
+                <ul>
+                    
+                    <li><a  (click)=" scrollToElement('que')">QU&Eacute; ES</a></li>
+                    <li><a  (click)=" scrollToElement('servicios')">SOLUCIONES</a></li>
+                    <li><a  (click)=" scrollToElement('precios')">PRECIOS</a></li>
+                    <li><a routerLink="/inicio">CONTPAQi</a></li>
+                    <li><a  (click)=" scrollToElement('contacto')">CONTACTANOS</a></li>
+                </ul>
+            </nav>
+            <div class="btn__menu" id="btn_menu">
+                <div class="dropdown">
+                    <button style="background-color:rgba(0, 141, 141, 0.75) ;" class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                   <i class="fas fa-bars"></i>
+                    </button>
+                    <ul style="color: white; background-color: rgba(0, 141, 141, 0.75);" class="dropdown-menu">
+                        
+                        <li><a  (click)=" scrollToElement('que')">QU&Eacute; ES</a></li>
+                        <li><a  (click)=" scrollToElement('servicios')">SOLUCIONES</a></li>
+                        <li><a  (click)=" scrollToElement('precios')">PRECIOS</a></li>
+                        <li><a routerLink="/inicio">CONTPAQi</a></li>
+                        <li><a  (click)=" scrollToElement('contacto')">CONTACTANOS</a></li>
+                    </ul>
+                  </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="container_all" id="container__all">
+    <div class="cover">
+
+        <!--INICIO WAVE-->
+
+            <div class="bg_color"></div>
+            <div class="wave w1"></div>
+            <div class="wave w2"></div>
+
+        <!--FINAL WAVE-->
+
+        <div id="inicio" class="container__cover">
+            <div  class="container__info">
+                
+                <h2>ASPEL</h2>
+                <p>Con CONTPAQi, lleva la gestión de tu negocio al siguiente nivel.</p>
+                <input  (click)=" scrollToElement('que')" type="button" value="Conoce m&aacute;s">
+            </div>
+            <div class="container__vector">
+                <img src="../../../assets/imagenes/SiigoAspel.png" alt="">
+            </div>
+        </div>
+    </div>
+
+
+
+    
+
+    <!-- NO TOCAR ÉSTE CÓDIGO...> AQUÍ TE DEJO EL TUTORIAL PARA QUE HAGAS ESTE CÓDIGO:
+    https://youtu.be/0V1Bs5nV6uo -->
+
+    <div class="body__Page">
+        <div class="container__article">
+            <div id="que" class="que que_es"  [ngsReveal]="{ reset: true, delay: 200, distance: '50px', origin: 'bottom' }" >
+                
+                <h1>¿Qu&eacute; es Aspel?</h1>
+                <div>
+                    <div class="row">
+                        <div class="col_texto col-12 col-md-6">
+                          <p>ASPel (Administración de Sistemas de la Producción en Línea) es un conjunto de software empresarial desarrollado en México por la empresa ASPEL. Está compuesto por varios módulos que cubren diferentes áreas de la administración empresarial, como contabilidad, facturación electrónica, nómina, inventarios, ventas, compras, entre otros.
+
+                            ASPel se utiliza principalmente en pequeñas y medianas empresas en México, y es conocido por ser un software fácil de usar y accesible en cuanto a costo. Algunos de los módulos más populares de ASPel son SAE (Sistema Administrativo Empresarial), COI (Contabilidad Integral), NOI (Nómina Integral) y BANCO (Control Bancario).</p>
+                        </div>
+                        <div class="col-img col-12 col-md-6">
+                            <img src="../../../assets/imagenes/SiigoAspel.png" alt="">
+                        </div>
+                    </div>
+
+                  
+                </div>
+                
+               
+               </div>
+
+
+                <!---acordion donde se encuentran los servicios disponibles-->
+                <div id="servicios" class="servicios container" style="margin-top: 3rem;" >
+                    <h1 [ngsReveal]="{ reset: true, delay: 200, distance: '50px', origin: 'bottom' }" style="text-align: center;">Soluciones</h1>
+                    <!--PRODUCTOS COMERCIALES/------------------------------>
+                    <cdk-accordion class="example-accordion">
+                      <cdk-accordion-item   
+                        #accordionItem="cdkAccordionItem"
+                        class="example-accordion-item"
+                        role="button"
+                        tabindex="0"
+                        [attr.id]="'accordion-header-' + 1"
+                        [attr.aria-expanded]="accordionItem.expanded"
+                        [attr.aria-controls]="'accordion-body-' + 1">
+                        <div class="example-accordion-item-header" style=" color: white; background-color: #15928a;" (click)="accordionItem.toggle()">
+                            Administración
+                          <span class="example-accordion-item-description">
+                            Click to {{ accordionItem.expanded ? 'close' : 'open' }}
+                          </span>
+                        </div>
+                        <div
+                          class="example-accordion-item-body"
+                          role="region"
+                          [style.display]="accordionItem.expanded ? '' : 'none'"
+                          [attr.id]="'accordion-body-' + 1"
+                          [attr.aria-labelledby]="'accordion-header-' + 1">
+                          <div class="contpaq_comercial">
+                            
+                            <div *ngFor="let item of tarjetasAdministracion.slice(inicioAdministracion, tarjetasMostradasAdministracion)" class="card" style="width: 18rem;">
+                                <img style="padding: 3rem;" src="{{item.src}}" class="card-img-top" alt="...">
+                                <div class="card-body cuerpo_comercial" [ngStyle]="{ 'background-color': item.back }">
+                                  <h5 class="card-title">{{item.titulo}}</h5>
+                                  <p class="card-text">{{item.desc}}</p>
+                                  <a  (click)="archivoPdf(contenidoPdfSeleccionado,item.ficha)"  class="btn btn-primary">Ficha t&eacute;cnica</a>
+                                </div>
+                              </div>
+                              
+                       
+                              </div>
+
+                              <div class="contpaq_comercial_responsive" >
+                                <div class="boton_atras">
+                                    <img  src="../../../assets/imagenes/ic-back_97586.svg"  (click)="verMenosAdministracionResponsive()"/>
+                                </div>
+                                <div *ngFor="let item of tarjetasAdministracion.slice(inicioAdministracionResponsive, tarjetasMostradasAdministracionResponsive)" class="card" style="width: 18rem;">
+                                    <img style="padding: 3rem;" src="{{item.src}}" class="card-img-top" alt="...">
+                                    <div class="card-body cuerpo_comercial" [ngStyle]="{ 'background-color': item.back }" >
+                                      <h5 class="card-title">{{item.titulo}}</h5>
+                                      <p class="card-text">{{item.desc}}</p>
+                                      <a style="bottom: 0; position: relative;"  (click)="archivoPdf(contenidoPdfSeleccionado,item.ficha)"  class="btn btn-primary">Ficha t&eacute;cnica</a>
+                                  </div>
+                                  </div>
+                                  <div class="boton_siguiente">
+                                    <img  src="../../../assets/imagenes/right_arrow_icon_124032.svg"  (click)="verMasAdministracionResponsive()"/>
+                                </div>
+                           
+                                  </div>
+                        </div>
+                      </cdk-accordion-item>
+                    </cdk-accordion>
+
+                    <cdk-accordion class="example-accordion">
+                        <cdk-accordion-item   
+                          #accordionItemConta="cdkAccordionItem"
+                          class="example-accordion-item"
+                          role="button"
+                          tabindex="0"
+                          [attr.id]="'accordion-header-' + 2"
+                          [attr.aria-expanded]="accordionItemConta.expanded"
+                          [attr.aria-controls]="'accordion-body-' + 2">
+                          <div class="example-accordion-item-header" style=" color: white; background-color: #15928a;" (click)="accordionItemConta.toggle()">
+                           Contabilidad
+                            <span class="example-accordion-item-description">
+                              Click to {{ accordionItemConta.expanded ? 'close' : 'open' }}
+                            </span>
+                          </div>
+                          <div
+                            class="example-accordion-item-body"
+                            role="region"
+                            [style.display]="accordionItemConta.expanded ? '' : 'none'"
+                            [attr.id]="'accordion-body-' + 2"
+                            [attr.aria-labelledby]="'accordion-header-' + 2">
+                            <div class="contpaq_comercial">
+                              
+                              <div *ngFor="let item of tarjetasConta.slice(inicioConta, tarjetasMostradasConta)" class="card" style="width: 18rem;">
+                                  <img style="padding: 3rem;" src="{{item.src}}" class="card-img-top" alt="...">
+                                  <div class="card-body cuerpo_comercial" [ngStyle]="{ 'background-color': item.back }">
+                                    <h5 class="card-title">{{item.titulo}}</h5>
+                                    <p class="card-text">{{item.desc}}</p>
+                                    <a  (click)="archivoPdf(contenidoPdfSeleccionado,item.ficha)"  class="btn btn-primary">Ficha t&eacute;cnica</a>
+                                  </div>
+                                </div>
+                                
+                         
+                                </div>
+  
+                                <div class="contpaq_comercial_responsive" >
+                                  <div class="boton_atras">
+                                      <img  src="../../../assets/imagenes/ic-back_97586.svg"  (click)="verMenosContaResponsive()"/>
+                                  </div>
+                                  <div *ngFor="let item of tarjetasConta.slice(inicioContaResponsive, tarjetasMostradasContaResponsive)" class="card" style="width: 18rem;">
+                                      <img style="padding: 3rem;" src="{{item.src}}" class="card-img-top" alt="...">
+                                      <div class="card-body cuerpo_comercial" [ngStyle]="{ 'background-color': item.back }" >
+                                        <h5 class="card-title">{{item.titulo}}</h5>
+                                        <p class="card-text">{{item.desc}}</p>
+                                        <a style="bottom: 0; position: relative;"  (click)="archivoPdf(contenidoPdfSeleccionado,item.ficha)"  class="btn btn-primary">Ficha t&eacute;cnica</a>
+                                    </div>
+                                    </div>
+                                    <div class="boton_siguiente">
+                                      <img  src="../../../assets/imagenes/right_arrow_icon_124032.svg"  (click)="verMasContaResponsive()"/>
+                                  </div>
+                             
+                                    </div>
+                          </div>
+                        </cdk-accordion-item>
+                      </cdk-accordion>
+
+                      <cdk-accordion class="example-accordion">
+                        <cdk-accordion-item   
+                          #accordionItemNoi="cdkAccordionItem"
+                          class="example-accordion-item"
+                          role="button"
+                          tabindex="0"
+                          [attr.id]="'accordion-header-' + 3"
+                          [attr.aria-expanded]="accordionItemNoi.expanded"
+                          [attr.aria-controls]="'accordion-body-' + 3">
+                          <div class="example-accordion-item-header" style=" color: white; background-color: #15928a;" (click)="accordionItemNoi.toggle()">
+                           Nomina y RH
+                            <span class="example-accordion-item-description">
+                              Click to {{ accordionItemNoi.expanded ? 'close' : 'open' }}
+                            </span>
+                          </div>
+                          <div
+                            class="example-accordion-item-body"
+                            role="region"
+                            [style.display]="accordionItemNoi.expanded ? '' : 'none'"
+                            [attr.id]="'accordion-body-' + 3"
+                            [attr.aria-labelledby]="'accordion-header-' + 3">
+                            <div class="contpaq_comercial">
+                              
+                              <div *ngFor="let item of tarjetasNoi.slice(inicioNoi, tarjetasMostradasNoi)" class="card" style="width: 18rem;">
+                                  <img style="padding: 3rem;" src="{{item.src}}" class="card-img-top" alt="...">
+                                  <div class="card-body cuerpo_comercial" [ngStyle]="{ 'background-color': item.back }">
+                                    <h5 class="card-title">{{item.titulo}}</h5>
+                                    <p class="card-text">{{item.desc}}</p>
+                                    <a  (click)="archivoPdf(contenidoPdfSeleccionado,item.ficha)"  class="btn btn-primary">Ficha t&eacute;cnica</a>
+                                  </div>
+                                </div>
+                                
+                         
+                                </div>
+  
+                                <div class="contpaq_comercial_responsive" >
+                                  <div class="boton_atras">
+                                      <img  src="../../../assets/imagenes/ic-back_97586.svg"  (click)="verMenosNoiResponsive()"/>
+                                  </div>
+                                  <div *ngFor="let item of tarjetasNoi.slice(inicioNoiResponsive, tarjetasMostradasNoiResponsive)" class="card" style="width: 18rem;">
+                                      <img style="padding: 3rem;" src="{{item.src}}" class="card-img-top" alt="...">
+                                      <div class="card-body cuerpo_comercial" [ngStyle]="{ 'background-color': item.back }" >
+                                        <h5 class="card-title">{{item.titulo}}</h5>
+                                        <p class="card-text">{{item.desc}}</p>
+                                        <a style="bottom: 0; position: relative;"  (click)="archivoPdf(contenidoPdfSeleccionado,item.ficha)"  class="btn btn-primary">Ficha t&eacute;cnica</a>
+                                    </div>
+                                    </div>
+                                    <div class="boton_siguiente">
+                                      <img  src="../../../assets/imagenes/right_arrow_icon_124032.svg"  (click)="verMasNoiResponsive()"/>
+                                  </div>
+                             
+                                    </div>
+                          </div>
+                        </cdk-accordion-item>
+                      </cdk-accordion>
+
+
+                      <cdk-accordion class="example-accordion">
+                        <cdk-accordion-item   
+                          #accordionItem2="cdkAccordionItem"
+                          class="example-accordion-item"
+                          role="button"
+                          tabindex="0"
+                          [attr.id]="'accordion-header-' + 4"
+                          [attr.aria-expanded]="accordionItem2.expanded"
+                          [attr.aria-controls]="'accordion-body-' + 4">
+                          <div class="example-accordion-item-header" style=" color: white; background-color: #15928a;" (click)="accordionItem2.toggle()">
+                           Administracion
+                            <span class="example-accordion-item-description">
+                              Click to {{ accordionItem2.expanded ? 'close' : 'open' }}
+                            </span>
+                          </div>
+                          <div
+                            class="example-accordion-item-body"
+                            role="region"
+                            [style.display]="accordionItem2.expanded ? '' : 'none'"
+                            [attr.id]="'accordion-body-' + 4"
+                            [attr.aria-labelledby]="'accordion-header-' + 4">
+                            <div class="contpaq_comercial">
+                              
+                              <div *ngFor="let item of tarjetasAdministracion2.slice(inicioAdministracion2, tarjetasMostradasAdministracion2)" class="card" style="width: 18rem;">
+                                  <img style="padding: 3rem;" src="{{item.src}}" class="card-img-top" alt="...">
+                                  <div class="card-body cuerpo_comercial" [ngStyle]="{ 'background-color': item.back }">
+                                    <h5 class="card-title">{{item.titulo}}</h5>
+                                    <p class="card-text">{{item.desc}}</p>
+                                    <a  (click)="archivoPdf(contenidoPdfSeleccionado,item.ficha)"  class="btn btn-primary">Ficha t&eacute;cnica</a>
+                                  </div>
+                                </div>
+                                
+                         
+                                </div>
+  
+                                <div class="contpaq_comercial_responsive" >
+                                  <div class="boton_atras">
+                                      <img  src="../../../assets/imagenes/ic-back_97586.svg"  (click)="verMenosAdministracionResponsive2()"/>
+                                  </div>
+                                  <div *ngFor="let item of tarjetasAdministracion2.slice(inicioAdministracionResponsive2, tarjetasMostradasAdministracionResponsive2)" class="card" style="width: 18rem;">
+                                      <img style="padding: 3rem;" src="{{item.src}}" class="card-img-top" alt="...">
+                                      <div class="card-body cuerpo_comercial" [ngStyle]="{ 'background-color': item.back }" >
+                                        <h5 class="card-title">{{item.titulo}}</h5>
+                                        <p class="card-text">{{item.desc}}</p>
+                                        <a style="bottom: 0; position: relative;"  (click)="archivoPdf(contenidoPdfSeleccionado,item.ficha)"  class="btn btn-primary">Ficha t&eacute;cnica</a>
+                                    </div>
+                                    </div>
+                                    <div class="boton_siguiente">
+                                      <img  src="../../../assets/imagenes/right_arrow_icon_124032.svg"  (click)="verMasAdministracionResponsive2()"/>
+                                  </div>
+                             
+                                    </div>
+                          </div>
+                        </cdk-accordion-item>
+                      </cdk-accordion>
+
+              
+                    
+               
+                         </div>
+          
+           <div id="precios" [ngsReveal]="{ reset: true, delay: 200, distance: '50px', origin: 'bottom' }" class="precios container" style="margin-top: 3rem;">
+            <h1  style="text-align: center;">PRECIOS</h1>
+
+            <div [ngsReveal]="{ reset: true, delay: 200, distance: '50px', origin: 'bottom' }" class="row" style="width: 100%;">
+         <h2 style="color: rgba(0, 141, 141, 0.75);">Administración </h2>
+        
+                 <div class="col-12 col-md-4" style="margin-top: 1rem;display: flex; justify-content: center; align-items: center;">
+                    
+                    <div class="card" style="width: 18rem; border: solid 2px  #d62828;">
+                        <img style="padding: 2rem;" src="../../../assets/imagenes/aspelSae.PNG" class="card-img-top" alt="...">
+                        <div style="text-align: center; display: flex; justify-content: center; align-items: center; flex-direction: column;" class="card-body">
+                          <h5 class="card-title">Desde $677   </h5>
+                          <p>- Pago recurrente con precio accesible y plan de pago a elegir.</p>
+                          <p>- Soporte Técnico para dudas específicas.</p>
+                          <p>- Timbrado ilimitado uno a uno.</p>
+                          <p>- Actualización de versión sin costo adicional. Incluye mejoras y últimos requerimientos fiscales vigentes.</p>
+                          <p>- Contratación sin plazos forzosos.</p>
+                       
+                        </div>
+                      </div>
+
+                 </div>
+                 <div class="col-12 col-md-4" style="margin-top: 1rem;display: flex; justify-content: center; align-items: center;">
+                    
+                    <div class="card" style="width: 18rem; border: solid 2px  #0077b6;">
+                        <img style="padding: 2rem;" src="../../../assets/imagenes/ADM.PNG" class="card-img-top" alt="...">
+                        <div style="text-align: center; display: flex; justify-content: center; align-items: center; flex-direction: column;" class="card-body">
+                          <h5 class="card-title">Desde $124 al mes</h5>
+                          <h6><strong>Básica</strong></h6>
+                          <p>- Suscripción en plan mensual o anual.</p>
+                          <p>- Prácticos catálogos de clientes y productos o servicios.</p>
+                          <p>- Expide Comprobantes con Complementos Fiscales.</p>
+                          <p>- Módulo de cotizaciones.</p>
+                          <p>- Facturas electrónicas ilimitadas.</p>
+                       
+                        </div>
+                      </div>
+
+                 </div>
+
+         
+                 <div class="col-12 col-md-4" style="margin-top: 1rem;display: flex; justify-content: center; align-items: center;">
+                    
+                    <div class="card" style="width: 18rem; border: solid 2px  #0077b6;">
+                        <img style="padding: 2rem;" src="../../../assets/imagenes/ADM.PNG" class="card-img-top" alt="...">
+                        <div style="text-align: center; display: flex; justify-content: center; align-items: center; flex-direction: column;" class="card-body">
+                          <h5 class="card-title">Desde $237 al mes</h5>
+                          <h6><strong>Paquetes de timbres</strong></h6>
+                          <p>- Contrata paquetes de facturas de acuerdo con tus necesidades: 20 facturas ($237), 50 facturas ($525) o 100 facturas ($918).</p>
+                          <p>- La vigencia de los timbres es de un año.</p>
+                          <p>- Incluye las funciones de la versión Básica (excepto facturación ilimitada).</p>
+                         
+                       
+                        </div>
+                      </div>
+
+                 </div>
+                 <div  class="col-12 col-md-4" style="margin-top: 1rem; display: flex; justify-content: center; align-items: center;">
+                    
+                    <div class="card" style="width: 18rem; border: solid 2px  #0077b6;">
+                        <img style="padding: 2rem;" src="../../../assets/imagenes/ADM.PNG" class="card-img-top" alt="...">
+                        <div style="text-align: center; display: flex; justify-content: center; align-items: center; flex-direction: column;" class="card-body">
+                          <h5 class="card-title">Desde $189 al mes</h5>
+                          <h6><strong>Premium</strong></h6>
+                          <p>Suscripción en plan mensual o anual.</p>
+                          <p>Incluye todas las funciones de la versión Básica y además:</p>
+                          <p>- Control de existencias.</p>
+                          <p>- Seguimiento de cuentas por cobrar.</p>
+                          <p>- Emisión de Recibos de Nómina Electrónicos.</p>
+                          <p>- Registro de gastos o compras de los productos.</p>
+                          <p>- Útiles estadísticas de ventas.</p>
+                       
+                        </div>
+                      </div>
+
+                 </div>
+
+
+
+
+            </div>
+
+
+            <div [ngsReveal]="{ reset: true, delay: 200, distance: '50px', origin: 'bottom' }" class="row" style="width: 100%;">
+                <h2 style="color: rgba(0, 141, 141, 0.75);">Contabilidad </h2>
+               
+                        <div class="col-12 col-md-12" style="margin-top: 1rem;display: flex; justify-content: center; align-items: center;">
+                           
+                           <div class="card" style="width: 18rem; border: solid 2px  #00b4d8;">
+                               <img style="padding: 2rem;" src="../../../assets/imagenes/COI.PNG" class="card-img-top" alt="...">
+                               <div style="text-align: center; display: flex; justify-content: center; align-items: center; flex-direction: column;" class="card-body">
+                                 <h5 class="card-title">Desde $377 al mes</h5>
+                                 <h6><strong>Suscripción</strong></h6>
+                                 <p>- Pago recurrente con precio accesible.</p>
+                                 <p>- Plan de pago a elegir.</p>
+                                 <p>- Soporte Técnico para dudas específicas.</p>
+                                 <p>- Actualización de versión sin costo adicional. Incluye mejoras y últimos requerimientos fiscales vigentes.</p>
+                                 <p>- Contratación sin plazos forzosos.</p>
+                              
+                               </div>
+                             </div>
+       
+                        </div>
+                       
+       
+       
+       
+       
+                   </div>
+
+            
+                   <div [ngsReveal]="{ reset: true, delay: 200, distance: '50px', origin: 'bottom' }" class="row" style="width: 100%;">
+                    <h2 style="color: rgba(0, 141, 141, 0.75);">Nomina y RH </h2>
+                   
+                            <div class="col-12 col-md-12" style="margin-top: 1rem;display: flex; justify-content: center; align-items: center;">
+                               
+                               <div class="card" style="width: 18rem; border: solid 2px  #fb5607;">
+                                   <img style="padding: 2rem;" src="../../../assets/imagenes/NOI.PNG" class="card-img-top" alt="...">
+                                   <div style="text-align: center; display: flex; justify-content: center; align-items: center; flex-direction: column;" class="card-body">
+                                     <h5 class="card-title">Desde $428 al mes</h5>
+                                     <h6><strong>Suscripción</strong></h6>
+                                     <p>- Pago recurrente con precio accesible y plan de pago a elegir.</p>
+                                     <p>- Soporte Técnico para dudas específicas.</p>
+                                     <p>- Timbrado ilimitado uno a uno.</p>
+                                     <p>- Actualización de versión sin costo adicional. Incluye mejoras y últimos requerimientos fiscales vigentes.</p>
+                                     <p>- Contratación sin plazos forzosos.</p>
+                                  
+                                   </div>
+                                 </div>
+           
+                            </div>
+                           
+           
+           
+           
+           
+                       </div>
+
+
+
+
+                       <div [ngsReveal]="{ reset: true, delay: 200, distance: '50px', origin: 'bottom' }" class="row" style="width: 100%;">
+                        <h2 style="color: rgba(0, 141, 141, 0.75);">Facturación</h2>
+                       
+                                <div class="col-12 col-md-12" style="margin-top: 1rem;display: flex; justify-content: center; align-items: center;">
+                                   
+                                   <div class="card" style="width: 18rem; border: solid 2px  #ffd60a;">
+                                       <img style="padding: 2rem;" src="../../../assets/imagenes/CAJA.PNG" class="card-img-top" alt="...">
+                                       <div style="text-align: center; display: flex; justify-content: center; align-items: center; flex-direction: column;" class="card-body">
+                                         <h5 class="card-title">Desde $174</h5>
+                                         <h6><strong>Suscripción</strong></h6>
+                                         <p>- Pago recurrente con precio accesible y plan de pago a elegir.</p>
+                                         <p>- Soporte Técnico para dudas específicas.</p>
+                                         <p>- Timbrado ilimitado uno a uno.</p>
+                                         <p>- Actualización de versión sin costo adicional. Incluye mejoras y últimos requerimientos fiscales vigentes.</p>
+                                         <p>- Contratación sin plazos forzosos.</p>
+                                      
+                                       </div>
+                                     </div>
+               
+                                </div>
+                               
+               
+               
+               
+               
+                           </div>
+
+         
+                 
+            
+
+           </div>
+           
+
+
+
+
+    </div>
+
+    <div class="container-testimonials">
+        <div class="box__testimonials"></div>
+        <div class="box__testimonials"></div>
+        <div class="box__testimonials"></div>
+    </div>
+</div>
+
+
+
+    <Footer>
+        <div class="container__footer">
+
+            <div class="box__footer">
+                <div class="logo">
+                    <img src="../../../assets/imagenes/SiigoAspel.png" alt="">
+                </div>
+                <div class="terms">
+                    Transformamos tu negocio con tecnología de vanguardia.
+                   </div>
+            </div>
+
+            <div class="box__footer">
+                <h2>Soluciones</h2>
+                <a href="#">Administraci&oacute;n</a>
+                <a href="#">Contabilidad</a>
+                <a href="#">Nomina y RH</a>
+                <a href="#">Facturación</a>
+            </div>
+
+            <div id="contacto" class=" contacto box__footer">
+                <h2>Contactanos</h2>
+                <a href="mailto:consultoriaempresarialtx@hotmail.com">consultoriaempresarialtx@hotmail.com</a>
+                <a>Tel:4424575509</a>
+                              
+            </div>
+
+          
+        </div>
+
+        <div class="box__copyright">
+            <hr>
+            <p>Todos los derechos reservados © 2023 <b>Consultoria empresarial TX</b></p>
+        </div>
+    </Footer>
+
+</div>
+
+
+
+
+
+<!--<ODAL PDF-->
+
+
+     <!--MODAL QUE SE LANZARA PARApdf seleccionado-->
+ <ng-template #contenidoPdfSeleccionado let-modal>
+    <div class="modal-header">
+      
+      <button class="close btn btn-danger" aria-label="close" type="button" (click)="modal.dismiss()">
+        <span aria-hidden="true">X</span>
+      </button>
+    </div>
+    <div class="modal-body" style="display: flex; justify-content: center;">
+      <div class="row" style="width: 100%; height: 100%;">
+    
+    <pdf-viewer
+    [src]="archivoPdfS"
+    [rotation]="0"
+    [original-size]="true"
+    [show-all]="true"
+    [fit-to-page]="true"
+    [zoom]="1"
+    [zoom-scale]="'page-width'"
+    [stick-to-page]="false"
+    [render-text]="true"
+    [external-link-target]="'blank'"
+    [autoresize]="true"
+    [show-borders]="false"
+    
+    style="width: 100%; height: 600px;"
+  ></pdf-viewer>
+  </div>
+    </div>
+    <div class="modal-footer">
+    
+      <button type="button" class="btn btn-success" (click)="modal.close()">Ok!</button>
+    </div>
+  </ng-template>
