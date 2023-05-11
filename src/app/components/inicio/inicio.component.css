@@ -289,7 +289,7 @@ nav ul li a{
         background: #F1FAFF;
         position: fixed;
         top: 0;
-        right: -180px;
+        right: 100%;
         padding: 0px 40px;
         transition: all 300ms;
     }

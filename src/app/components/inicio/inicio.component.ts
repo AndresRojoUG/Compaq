@@ -20,6 +20,7 @@ export class InicioComponent {
   tarjetasMostradasComercialResponsive = 1;
   inicioComercialResponsive=0;
   inicioComercial=0
+  mostrar = false;
   user: any = {};
   tarjetasComercial = [
     {
@@ -239,6 +240,13 @@ verMenosNubeResponsive(){
     this.archivoPdfS=arc;
    
     this.modal.open(contenidoPdfSeleccionado, { centered: true, size: 'xl', animation: true, backdrop: true })
+  }
+  mostrarDiv() {
+    this.mostrar = true;
+  }
+
+  ocultarDiv() {
+    this.mostrar = false;
   }
 
   }

@@ -1,0 +1,256 @@
+<header id="header">
+    <div id="inicio" class="container__header">
+        <div class="logo">
+            <img src="../../../assets/imagenes/p-PhotoRoom.png-PhotoRoom.png" alt="">
+        </div>
+        <div class="container__nav">
+            <nav id="nav">
+                <ul>
+                   
+                    <li><a  (click)=" scrollToElement('que')">QU&Eacute; ES</a></li>
+                    <li><a  (click)=" scrollToElement('servicios')">A QUE NOS DEDICAMOS</a></li>
+                    <li><a  (click)=" scrollToElement('prod')">PRODUCTOS</a></li>
+                    <li><a (mouseenter)="mostrarDiv()" (mouseleave)="ocultarDiv()" class="btn botonDespliegue">SOFTWARE</a>  
+                    <div (mouseenter)="mostrarDiv()" (mouseleave)="ocultarDiv()"  [ngStyle]="{'display': mostrar ? 'flex' : 'none'}" class="menuDespegable">
+                        <ul style="color: white; background-color: rgba(0, 141, 141, 0.75);" class="dropdown-menu">
+                                
+                            <li><a routerLink="/inicio">CONTPAQi</a></li>
+                            <li><a routerLink="/aspel">ASPEL</a></li>
+                           
+                        </ul>
+                    </div>
+                    
+                    </li>
+
+                    <li><a  (click)=" scrollToElement('contacto')">CONTACTANOS</a></li>
+                </ul>
+            </nav>
+            <div class="btn__menu" id="btn_menu">
+                <div class="dropdown">
+                    <button style="background-color:rgba(0, 141, 141, 0.75) ;" class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                   <i class="fas fa-bars"></i>
+                    </button>
+                    <ul style="color: white; background-color: rgba(0, 141, 141, 0.75);" class="dropdown-menu">
+                        
+                          <li><a  (click)=" scrollToElement('que')">QU&Eacute; ES</a></li>
+                    <li><a  (click)=" scrollToElement('servicios')">A QUE NOS DEDICAMOS</a></li>
+                    <li><a  (click)=" scrollToElement('prod')">PRODUCTOS</a></li>
+                      
+                        
+                                    <li><a style="text-decoration: none; color: white;" routerLink="/inicio">CONTPAQi</a></li>
+                                    <li><a style="text-decoration: none;color: white;"  routerLink="/aspel">ASPEL</a></li>
+                                   
+                                
+                            
+                           
+                        <li><a  (click)=" scrollToElement('contacto')">CONTACTANOS</a></li>
+                    </ul>
+                  </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="container_all" id="container__all">
+    <div class="cover">
+
+        <!--INICIO WAVE-->
+
+            <div class="bg_color"></div>
+            <div class="wave w1"></div>
+            <div class="wave w2"></div>
+
+        <!--FINAL WAVE-->
+
+        <div  class="container__cover">
+            <div  class="container__info">
+                
+                <h2 id="inicio" style="color:rgba(39, 39, 148, 0.89);">ADN BUSINESS SYSTEMS</h2>
+                
+                <p>Empresa dedicada al software empresarial para impulsar negocios y empresas</p>
+                <input  (click)=" scrollToElement('que')" type="button" value="Conoce m&aacute;s">
+            </div>
+            <div class="container__vector">
+                <img src="../../../assets/imagenes/p-PhotoRoom.png-PhotoRoom.png" alt="">
+            </div>
+        </div>
+    </div>
+
+
+
+    
+
+    <!-- NO TOCAR ÉSTE CÓDIGO...> AQUÍ TE DEJO EL TUTORIAL PARA QUE HAGAS ESTE CÓDIGO:
+    https://youtu.be/0V1Bs5nV6uo -->
+
+    <div class="body__Page">
+        <div class="container__article">
+            <div id="que" class="que que_es"  [ngsReveal]="{ reset: true, delay: 600, distance: '50px', origin: 'left' }" >
+                
+                <h1>¿Qu&eacute; es ADN Business System?</h1>
+            <div>
+                
+                <div class="info-image">
+                    <div class="info-text">
+                      <h2>ADN Business System</h2>
+                      <p>ADN Business System es una empresa mexicana que se dedica a la distribución e implementación de sistemas de software empresarial. Especializados en la distribución e implementación de sistemas como CONTPAQi y Aspel, dos de los principales software contables y administrativos utilizados en México.</p>
+                  <br>  <p>ADN Business System se enfoca en brindar soluciones de software empresarial a pequeñas y medianas empresas en México, ayudándolas a mejorar sus procesos y aumentar su productividad. Además de la distribución e implementación de sistemas de software, la empresa ofrece servicios de soporte técnico, capacitación y consultoría para asegurarse de que sus clientes aprovechen al máximo las herramientas que ofrecen.</p>
+                    </div>
+                  </div>
+                  
+                      
+                  
+            </div>
+               </div>
+               
+
+
+                <!---acordion donde se encuentran los servicios disponibles-->
+                <div id="servicios" class="servicios container" style="margin-top: 3rem;" >
+               
+               
+                         </div>
+          
+           <div id="precios" class="precios container" style="margin-top: 3rem;">
+            <h1  [ngsReveal]="{ reset: true, delay: 200, distance: '50px', origin: 'bottom' }" >A que nos dedicamos</h1>
+
+
+            <div >
+                <h2>{{informacion.titulo}}</h2>
+                <p>{{informacion.descripcion}}</p>
+                <div  *ngFor="let servicio of informacion.servicios" class="servicio">
+                  <h3>{{servicio.titulo}}</h3>
+                  <div style="display: flex; justify-content: center; align-items: center; width: 100%;">
+                    <img  [src]="servicio.imagen" alt="{{servicio.titulo}}"></div>
+                  
+                  <div class="servicio-descripcion">
+                   <h3> {{servicio.descripcion}}</h3></div>
+                </div>
+              </div>
+              
+                                 
+                 
+            
+
+           </div>
+           
+<div class="row " id="prod" >
+    <h2 style="display: flex; justify-content: start; margin-top: 1rem;;">SOFTWARE</h2>
+
+<div class="videoCom col-12 col-md-6">
+
+
+    <img style="width: 120px; height: 120px;" src="../../../assets/imagenes/CONTPAQi-logo-01.png" alt="">
+  
+        <video  width="350" height="360" autoplay muted loop   id="video-background">
+          <source src="../../../assets/imagenes/y2mate.com - CONTPAQi Contabilidad_1080p.mp4" type="video/mp4">
+        </video>
+       
+        <button routerLink="/inicio" style="display: block; width: 135px; height: 65px; position: absolute; bottom: 0%;" class="btn btn-primary">CONOCER M&Aacute;S</button>
+     
+</div>
+<div class="videoCom col-12 col-md-6">
+
+    <img style="width: 120px; height: 120px;" src="../../../assets/imagenes/aspelSae.PNG" alt="">
+  
+        <video  width="350" height="360" autoplay muted loop   id="video-background2">
+          <source src="../../../assets/imagenes/Aspel.mp4" type="video/mp4">
+        </video>
+       
+        <button routerLink="/aspel" style="display: block; width: 135px; height: 65px; position: absolute; bottom: 0%;" class="btn btn-primary">CONOCER M&Aacute;S</button>
+     
+    
+</div>
+
+
+
+    </div>
+
+    <div class="container-testimonials">
+        <div class="box__testimonials"></div>
+        <div class="box__testimonials"></div>
+        <div class="box__testimonials"></div>
+    </div>
+</div>
+
+
+
+    <Footer>
+        <div class="container__footer">
+
+            <div class="box__footer">
+                <div class="logo">
+                    <img style="width: 120px; height: 120px;" src="../../../assets/imagenes/p-PhotoRoom.png-PhotoRoom.png" alt="">
+                </div>
+                <div class="terms">
+                    Empresa dedicada al software empresarial para impulsar negocios y empresas
+                   </div>
+            </div>
+
+            <div class="box__footer">
+                <h2>Soluciones</h2>
+                <li><a routerLink="/inicio">CONTPAQi</a></li>
+                <li><a routerLink="/aspel">ASPEL</a></li>
+                <li><a>ASESORIA</a></li>
+                <li><a >SOPORTE</a></li>
+            </div>
+
+            <div id="contacto" class=" contacto box__footer">
+                <h2>Contactanos</h2>
+                <a href="mailto:consultoriaempresarialtx@hotmail.com">consultoriaempresarialtx@hotmail.com</a>
+                <a>Tel:4424575509</a>
+                              
+            </div>
+
+          
+        </div>
+
+        <div class="box__copyright">
+            <hr>
+            <p>Todos los derechos reservados © 2023 <b>Consultoria empresarial TX</b></p>
+        </div>
+    </Footer>
+
+</div>
+
+
+
+
+
+<!--<ODAL PDF-->
+
+
+     <!--MODAL QUE SE LANZARA PARApdf seleccionado-->
+ <ng-template #contenidoPdfSeleccionado let-modal>
+    <div class="modal-header">
+      
+      <button class="close btn btn-danger" aria-label="close" type="button" (click)="modal.dismiss()">
+        <span aria-hidden="true">X</span>
+      </button>
+    </div>
+    <div class="modal-body" style="display: flex; justify-content: center;">
+      <div class="row" style="width: 100%; height: 100%;">
+    
+    <pdf-viewer
+    [src]="archivoPdfS"
+    [rotation]="0"
+    [original-size]="true"
+    [show-all]="true"
+    [fit-to-page]="true"
+    [zoom]="1"
+    [zoom-scale]="'page-width'"
+    [stick-to-page]="false"
+    [render-text]="true"
+    [external-link-target]="'blank'"
+    [autoresize]="true"
+    [show-borders]="false"
+    
+    style="width: 100%; height: 600px;"
+  ></pdf-viewer>
+  </div>
+    </div>
+    <div class="modal-footer">
+    
+      <button type="button" class="btn btn-success" (click)="modal.close()">Ok!</button>
+    </div>
+  </ng-template>

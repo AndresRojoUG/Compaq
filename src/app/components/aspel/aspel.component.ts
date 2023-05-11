@@ -11,6 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
   styleUrls: ['./aspel.component.css']
 })
 export class AspelComponent {
+  @ViewChild('myVideo') video: any;
   crolled: boolean = false;
   sr: any
   archivoPdfS!: string;
@@ -113,6 +114,9 @@ export class AspelComponent {
   constructor(private elementRef: ElementRef, private modal: NgbModal,private httClient: HttpClientModule ) {}
   menu_icon_variable: boolean = false;
   menuVariable: boolean = false;
+  mostrar = false;
+  showVideo = true;
+
   
   
   ngOnInit() {
@@ -127,6 +131,21 @@ export class AspelComponent {
 
   
 
+  }
+  mostrarDiv() {
+    this.mostrar = true;
+  }
+  pauseAtEnd() {
+    const videoElement = this.video.nativeElement;
+    const currentTime = videoElement.currentTime;
+    const duration = videoElement.duration;
+
+    if (duration - currentTime < 8) {
+      videoElement.pause();
+    }
+  }
+  ocultarDiv() {
+    this.mostrar = false;
   }
   scrollToElement(elementId: string): void {
 console.log(this.elementRef.nativeElement.querySelector('#' +elementId))

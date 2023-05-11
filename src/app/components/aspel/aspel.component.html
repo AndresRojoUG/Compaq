@@ -10,7 +10,17 @@
                     <li><a  (click)=" scrollToElement('que')">QU&Eacute; ES</a></li>
                     <li><a  (click)=" scrollToElement('servicios')">SOLUCIONES</a></li>
                     <li><a  (click)=" scrollToElement('precios')">PRECIOS</a></li>
-                    <li><a routerLink="/inicio">CONTPAQi</a></li>
+                    <li><a (mouseenter)="mostrarDiv()" (mouseleave)="ocultarDiv()" class="btn botonDespliegue">SOFTWARE</a>  
+                      <div (mouseenter)="mostrarDiv()" (mouseleave)="ocultarDiv()"  [ngStyle]="{'display': mostrar ? 'flex' : 'none'}" class="menuDespegable">
+                          <ul style="color: white; background-color: rgba(0, 141, 141, 0.75);" class="dropdown-menu">
+                                  
+                              <li><a routerLink="/inicio">CONTPAQi</a></li>
+                              <li><a routerLink="/aspel">ASPEL</a></li>
+                             
+                          </ul>
+                      </div>
+                      
+                      </li>
                     <li><a  (click)=" scrollToElement('contacto')">CONTACTANOS</a></li>
                 </ul>
             </nav>
@@ -24,7 +34,9 @@
                         <li><a  (click)=" scrollToElement('que')">QU&Eacute; ES</a></li>
                         <li><a  (click)=" scrollToElement('servicios')">SOLUCIONES</a></li>
                         <li><a  (click)=" scrollToElement('precios')">PRECIOS</a></li>
-                        <li><a routerLink="/inicio">CONTPAQi</a></li>
+                        <li><a style="text-decoration: none; color: white;" routerLink="/inicio">CONTPAQi</a></li>
+                        <li><a style="text-decoration: none;color: white;"  routerLink="/aspel">ASPEL</a></li>
+                       
                         <li><a  (click)=" scrollToElement('contacto')">CONTACTANOS</a></li>
                     </ul>
                   </div>
@@ -501,7 +513,11 @@
 
 
     </div>
-
+    <div id="video-container">
+      <video *ngIf="showVideo" #myVideo (timeupdate)="pauseAtEnd()" autoplay  width="100%" id="video-background">
+        <source src="../../../assets/imagenes/Aspel.mp4" type="video/mp4">
+      </video>
+    </div>
     <div class="container-testimonials">
         <div class="box__testimonials"></div>
         <div class="box__testimonials"></div>

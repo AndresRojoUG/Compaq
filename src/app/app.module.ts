@@ -11,12 +11,15 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms'; 
 import {HttpClientModule} from '@angular/common/http';
 import { AspelComponent } from './components/aspel/aspel.component';
+import { AdnBComponent } from './components/adn-b/adn-b.component';
+import { SlickCarouselModule } from 'ngx-slick-carousel';
 
 @NgModule({
   declarations: [
     AppComponent,
     InicioComponent,
-    AspelComponent
+    AspelComponent,
+    AdnBComponent
   ],
   imports: [
     NgsRevealModule,
@@ -27,7 +30,8 @@ import { AspelComponent } from './components/aspel/aspel.component';
     PdfViewerModule,
     NgbModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    SlickCarouselModule
    
     
    
